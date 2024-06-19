@@ -17,6 +17,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import './Login.css';  // Assuming you have some CSS for additional custom styling
 
+const AUTH_URL =   'https://downsouth-auth.onrender.com' || 'http://localhost:4001/api/v1/auth/login'  ;
 const theme = createTheme();
 
 const Login = () => {
@@ -36,7 +37,7 @@ const Login = () => {
 
         try {
             const response = await axios.post(
-                `${process.env.REACT_APP_AUTH_URL}/api/v1/auth/login`,
+                `${AUTH_URL}/api/v1/auth/login`,
                 {
                     username: email,
                     password: password,
@@ -53,13 +54,13 @@ const Login = () => {
             setEmail("");
             setPassword("");
 
-            console.log(response.data.usertype);
+            console.log(response.data.user_type);
 
-            if (response.data.usertype === "m_center") {
+            if (response.data.user_type === "m_center") {
                 window.location = "/m_home";
-            } else if (response.data.usertype === "tourist") {
+            } else if (response.data.user_type === "tourist") {
                 window.location = "/t_home";
-            } else if (response.data.usertype === "admin") {
+            } else if (response.data.user_type === "admin") {
                 window.location = "/a_home";
             }
 
@@ -118,6 +119,7 @@ const Login = () => {
                             />
                             <Button
                                 type="submit"
+
                                 fullWidth
                                 variant="contained"
                                 color="primary"

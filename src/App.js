@@ -30,7 +30,7 @@ import M_update from "./pages/m_center/M_update";
 //import Destination from "./pages/test/destination";
 
 //Import Admin Pages
-import A_Home from "./pages/admin/a-home";
+import A_Home from "./pages/admin/a-home2";
 import A_Create from "./pages/admin/a-create";
 import A_Update from "./pages/admin/a-update";
 
